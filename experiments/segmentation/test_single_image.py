@@ -19,9 +19,10 @@ from encoding.models import get_segmentation_model, MultiEvalModule
 
 from .option import Options
 import numpy as np
+from L0_serial import L0_smooth
 
 
-def semseg(input_path, output_path):
+def semseg(input_path, output_path=None):
     """
     param:
         input_path: str, path of input image
@@ -41,6 +42,12 @@ def semseg(input_path, output_path):
         transform.ToTensor(),
         transform.Normalize([.485, .456, .406], [.229, .224, .225])
     ])
+
+    # using L0_smooth to transform the orignal picture
+    mid_result = os.path.join(os.path.dirname(input_path), "L0_result.png")
+    L0_smooth(input_path, mid_result)
+    input_path = mid_result
+
     # model
     model = get_segmentation_model(args.model,
                                    dataset=args.dataset,
@@ -106,13 +113,18 @@ def semseg(input_path, output_path):
     main_animal = classes[main_idx]
     predict[predict != main_idx] = 29
 
-    mask = utils.get_mask_pallete(predict, args.dataset)
-    mask.save(output_path)
+    if output_path is not None:
+        # exp = [0,1]
+        # for i, pixel in enumerate(np.unique(predict)):
+        #     predict[np.where(predict == pixel)] = exp[i]
+
+        mask = utils.get_mask_pallete(predict, args.dataset)
+        mask.save(output_path)
 
     if main_pixels < background_pixels:
-        return [main_animal, "background"]
+        return predict, (main_animal, "background")
     else:
-        return ["background", main_animal]
+        return predict, ("background", main_animal)
 
 
 if __name__ == "__main__":

@@ -5,6 +5,8 @@ models = ['cityscapes_label2photo_pretrained','cityscapes_photo2label_pretrained
 
 classes_to_models = {}
 
+classes_to_models['background'] = ['winter2summer_yosemite_pretrained']
+
 classes_to_models['motorbike'] = ['winter2summer_yosemite_pretrained', 'style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['aeroplane'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
