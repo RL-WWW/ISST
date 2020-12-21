@@ -7,6 +7,12 @@ classes_to_models = {}
 
 classes_to_models['background'] = ['winter2summer_yosemite_pretrained']
 
+classes_to_models['dog'] = ['horse2zebra_pretrained']
+classes_to_models['bird'] = ['horse2zebra_pretrained']
+classes_to_models['cat'] = ['horse2zebra_pretrained']
+classes_to_models['cow'] = ['horse2zebra_pretrained']
+classes_to_models['horse'] = ['horse2zebra_pretrained']
+
 classes_to_models['motorbike'] = ['winter2summer_yosemite_pretrained', 'style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['aeroplane'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
@@ -20,8 +26,6 @@ classes_to_models['bedclothes'] = ['style_cezanne_pretrained','style_monet_pretr
 classes_to_models['bench'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['bicycle'] = ['cityscapes_label2photo_pretrained','cityscapes_photo2label_pretrained','style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
-
-classes_to_models['bird'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['boat'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
@@ -37,8 +41,6 @@ classes_to_models['cabinet'] = ['style_cezanne_pretrained','style_monet_pretrain
 
 classes_to_models['car'] = ['cityscapes_label2photo_pretrained','cityscapes_photo2label_pretrained','style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
-classes_to_models['cat'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
-
 classes_to_models['ceiling'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['chair'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
@@ -47,13 +49,9 @@ classes_to_models['cloth'] = ['style_cezanne_pretrained','style_monet_pretrained
 
 classes_to_models['computer'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
-classes_to_models['cow'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
-
 classes_to_models['cup'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['curtain'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
-
-classes_to_models['dog'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['door'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
@@ -68,9 +66,6 @@ classes_to_models['food'] = ['style_cezanne_pretrained','style_monet_pretrained'
 classes_to_models['grass'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 
 classes_to_models['ground'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
-
-classes_to_models['horse'] = ['horse2zebra_pretrained']
-# 'style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained'
 
 classes_to_models['keyboard'] = ['style_cezanne_pretrained','style_monet_pretrained','style_ukiyoe_pretrained','style_vangogh_pretrained']
 

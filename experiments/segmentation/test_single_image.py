@@ -5,6 +5,7 @@
 ###########################################################################
 
 import os
+import sys
 
 import torch
 import torchvision.transforms as transform
@@ -22,7 +23,7 @@ import numpy as np
 from L0_serial import L0_smooth
 
 
-def semseg(input_path, output_path=None):
+def semseg(input_path, output_path=None, with_L0=False):
     """
     param:
         input_path: str, path of input image
@@ -30,6 +31,7 @@ def semseg(input_path, output_path=None):
     return: tuple, [animal_name, "background"] if pixels of "background" dominate,
                    ["background", animal_name] else.
     """
+    sys.argv = sys.argv[:1]
     option = Options()
     args = option.parse()
     args.aux = True
@@ -44,9 +46,10 @@ def semseg(input_path, output_path=None):
     ])
 
     # using L0_smooth to transform the orignal picture
-    mid_result = os.path.join(os.path.dirname(input_path), "L0_result.png")
-    L0_smooth(input_path, mid_result)
-    input_path = mid_result
+    if with_L0:
+        mid_result = os.path.join(os.path.dirname(input_path), "L0_result.png")
+        L0_smooth(input_path, mid_result)
+        input_path = mid_result
 
     # model
     model = get_segmentation_model(args.model,
