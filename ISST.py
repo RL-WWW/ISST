@@ -17,7 +17,7 @@ import sys
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--image", default="C:/Users/ls/Desktop/exp/horse_man.jpg", help="The image we need to transfer")
+    parser.add_argument("--image", default="C:/Users/ls/Desktop/exp/horse0.jpeg", help="The image we need to transfer")
     # parser.add_argument("--image", default=None, help="The original image")
     parser.add_argument("--folder", default="C:\\Users\\ls\\Desktop\\animal_pics\\horse", help="input folder")
     parser.add_argument("--temp_folder", default=None, help='Where to put the middle images')
@@ -98,7 +98,7 @@ def ISST(input_path, folder, folder2, target_path, models):
     original_im = Image.open(input_path)
     original_img = totensor(original_im)
 
-    matrix, image_classes = semseg(input_path, os.path.join(folder, "mask.png"), with_L0=False)
+    matrix, image_classes = semseg(input_path, os.path.join(folder2, "mask.png"), with_L0=False)
     # matrix and classes of the processed images
     img = torch.tensor(matrix, dtype=torch.float32)
     img = totensor(toimage(img).convert("RGB"))
@@ -198,8 +198,6 @@ def ISST(input_path, folder, folder2, target_path, models):
                 for idx in image_index:
                     new_images[idx][k][torch.where(img_2_dim == pixel)] = fake[k][torch.where(img_2_dim == pixel)]
 
-
-
             if class_name == 'background':
                 toimage(fake).save(os.path.join(folder2, 'background_1.png'))
             else:
@@ -210,6 +208,7 @@ def ISST(input_path, folder, folder2, target_path, models):
     for i, new_image in enumerate(new_images):
         result = toimage(new_image)
         result.save(target_path+f'{i}.png')
+
 
 
 if __name__ == '__main__':
