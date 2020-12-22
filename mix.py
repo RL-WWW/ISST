@@ -6,7 +6,7 @@ def mix(input_folder, target_path):
     " 融合图像 "
     src = cv2.imread(os.path.join(input_folder, 'animal.png'))
     mask = cv2.imread(os.path.join(input_folder, 'mask.png'))
-    mask = cv2.GaussianBlur(mask, (9, 9), 3)
+    mask = cv2.GaussianBlur(mask, (13, 13), 3)
     mask = np.clip(np.array(cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)).astype(np.int) * 255, 0, 255).astype(np.uint8)
     for i in [0, 1]:
         dst = cv2.imread(os.path.join(input_folder, f'background_{i}.png'))  # 背景

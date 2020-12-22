@@ -18,7 +18,7 @@ import sys
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    # parser.add_argument("--image", default="C:/Users/ls/Desktop/exp/horse9.jpeg", help="The image we need to transfer")
+    # parser.add_argument("--image", default="C:/Users/ls/Desktop/exp/horse1.jpeg", help="The image we need to transfer")
     parser.add_argument("--image", default=None, help="The original image")
     parser.add_argument("--folder", default="C:\\Users\\ls\\Desktop\\animal_pics\\dog", help="input folder")
     parser.add_argument("--temp_folder", default=None, help='Where to put the middle images')
@@ -114,13 +114,14 @@ def ISST(input_path, folder, folder2, target_path, models):
 
     toimage(original_img).save(os.path.join(folder, f"exp_real.png"))
     for i, pixel in enumerate(torch.unique(img_2_dim).sort()[0]):
-        # plane = torch.zeros_like(img)
-        plane = original_img
-        # if image_classes[i] != 'background':
-        #     plane = original_img
-        # else:
-        #     for j in range(len(plane)):
-        #         plane[j][torch.where(img_2_dim == pixel)] = original_img[j][torch.where(img_2_dim == pixel)]
+        # plane = original_img
+        plane = torch.zeros_like(img)
+        if image_classes[i] != 'background':
+            plane = original_img
+        else:
+            for j in range(len(plane)):
+                plane[j][torch.where(img_2_dim == pixel)] = original_img[j][torch.where(img_2_dim == pixel)]
+                # plane[j][torch.where(plane[j] == 0)] = torch.mean(plane[j][torch.where(plane[j]!=0)])
         toimage(plane).save(os.path.join(folder, f"exp{i}.png"))
 
     # 调用cycleGAN
