@@ -5,6 +5,7 @@
 ###########################################################################
 
 import os
+import sys
 
 import torch
 import torchvision.transforms as transform
@@ -22,7 +23,7 @@ import numpy as np
 from L0_serial import L0_smooth
 
 
-def semseg(input_path, output_path=None):
+def semseg(input_path, output_path=None, with_L0=False):
     """
     param:
         input_path: str, path of input image
@@ -30,6 +31,7 @@ def semseg(input_path, output_path=None):
     return: tuple, [animal_name, "background"] if pixels of "background" dominate,
                    ["background", animal_name] else.
     """
+    sys.argv = sys.argv[:1]
     option = Options()
     args = option.parse()
     args.aux = True
@@ -44,9 +46,10 @@ def semseg(input_path, output_path=None):
     ])
 
     # using L0_smooth to transform the orignal picture
-    mid_result = os.path.join(os.path.dirname(input_path), "L0_result.png")
-    L0_smooth(input_path, mid_result)
-    input_path = mid_result
+    if with_L0:
+        mid_result = os.path.join(os.path.dirname(input_path), "L0_result.png")
+        L0_smooth(input_path, mid_result)
+        input_path = mid_result
 
     # model
     model = get_segmentation_model(args.model,
@@ -112,13 +115,15 @@ def semseg(input_path, output_path=None):
 
     main_animal = classes[main_idx]
     predict[predict != main_idx] = 29
+    mask_matrix = predict.copy()
 
     if output_path is not None:
         # exp = [0,1]
-        # for i, pixel in enumerate(np.unique(predict)):
-        #     predict[np.where(predict == pixel)] = exp[i]
-
-        mask = utils.get_mask_pallete(predict, args.dataset)
+        # for i, pixel in enumerate(np.unique(mask_matrix)):
+        #     mask_matrix[np.where(mask_matrix == pixel)] = exp[i]
+        mask_matrix[np.where(mask_matrix != 29)] = 1
+        mask_matrix[np.where(mask_matrix == 29)] = 0
+        mask = utils.get_mask_pallete(mask_matrix, args.dataset)
         mask.save(output_path)
 
     if main_pixels < background_pixels:
