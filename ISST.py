@@ -12,16 +12,18 @@ import torchvision.transforms as tfs
 from options.test_options import TestOptions
 from classes_to_models import get_mapping
 import argparse
+import mix
 import sys
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--image", default="C:/Users/ls/Desktop/exp/horse0.jpeg", help="The image we need to transfer")
-    # parser.add_argument("--image", default=None, help="The original image")
-    parser.add_argument("--folder", default="C:\\Users\\ls\\Desktop\\animal_pics\\horse", help="input folder")
+    # parser.add_argument("--image", default="C:/Users/ls/Desktop/exp/horse9.jpeg", help="The image we need to transfer")
+    parser.add_argument("--image", default=None, help="The original image")
+    parser.add_argument("--folder", default="C:\\Users\\ls\\Desktop\\animal_pics\\dog", help="input folder")
     parser.add_argument("--temp_folder", default=None, help='Where to put the middle images')
-    parser.add_argument("--target_path", default=None, help='Where to put the final result')
+    parser.add_argument("--target_path", default="C:\\Users\\ls\\Desktop\\animal_pics\\dog_results", help='Where to put the final result')
+    # parser.add_argument("--target_path", default=None, help='Where to put the final result')
     return parser.parse_args()
 
 def config_models(model_names, folder):
@@ -157,7 +159,11 @@ def ISST(input_path, folder, folder2, target_path, models):
     indexes = torch.arange(num).reshape(shape)
     new_images = torch.zeros(num, *(img.shape))
 
-    for i, (pixel, data, class_name) in enumerate(zip(torch.unique(img_2_dim).sort()[0], dataset, image_classes)):
+    unique_pixel = torch.unique(img_2_dim)
+    if torch.sum(img_2_dim == unique_pixel[0]) > torch.sum(img_2_dim != unique_pixel[0]):
+        unique_pixel = unique_pixel.__reversed__()
+
+    for i, (pixel, data, class_name) in enumerate(zip(unique_pixel, dataset, image_classes)):
         # get models
         buffer = 0
         if class_name == 'background':
@@ -208,6 +214,8 @@ def ISST(input_path, folder, folder2, target_path, models):
     for i, new_image in enumerate(new_images):
         result = toimage(new_image)
         result.save(target_path+f'{i}.png')
+
+    mix.mix(temp_folder2, target_path+'poisson')
 
 
 
