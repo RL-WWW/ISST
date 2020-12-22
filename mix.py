@@ -10,9 +10,7 @@ def mix(input_folder, target_path):
     mask = np.clip(np.array(cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)).astype(np.int) * 255, 0, 255).astype(np.uint8)
     for i in [0, 1]:
         dst = cv2.imread(os.path.join(input_folder, f'background_{i}.png'))  # 背景
-        # cnts = cv2.findContours(mask, cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-        # cnts = cnts[0]
-        # x, y, w, h = cv2.boundingRect(cnts[0])
+
         x, y, w, h = cv2.boundingRect(mask)
         cX = x + w//2
         cY = y + h//2
@@ -23,6 +21,6 @@ def mix(input_folder, target_path):
 
 
 if __name__ == "__main__":
-    cv2.imshow("rst", mix("fake_0.png", "fake_1.png", "mask.png"))
+    cv2.imshow("rst", mix("animal_2.png", "background_3.png", "mask (4).png"))
     #cv2.imwrite("result.png", rst)
     cv2.waitKey(0)
