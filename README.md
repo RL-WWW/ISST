@@ -8,7 +8,10 @@
 We have provided Pytorch Implementation for our course project **Image Segmentation Enhanced Style Transfer**. We have used Image Segmentation to help us improve the performance of conventional Style Transfer, especially for problem that the elements within the picture will interfere with each other.  
 
 ## Experimental Results
+![image]("https://github.com/RL-WWW/ISST/tree/main/pictures/dog3.jpeg")
 
+
+<!-- <img src="https://github.com/RL-WWW/ISST/tree/main/pictures/dog3.jpeg" width="800"/> -->
 
 
 
