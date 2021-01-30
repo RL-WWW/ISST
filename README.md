@@ -3,7 +3,14 @@
 
 <br><br><br>
 
-# CycleGAN and pix2pix in PyTorch
+# Image Segmentation Enhanced Style Transfer
+
+We have provided Pytorch Implementation for our course project **Image Segmentation Enhanced Style Transfer**. We have used Image Segmentation to help us improve the performance of conventional Style Transfer, especially for problem that the elements within the picture will interfere with each other.  
+
+## Experimental Results
+
+
+
 
 **New**:  Please check out [contrastive-unpaired-translation](https://github.com/taesungp/contrastive-unpaired-translation) (CUT), our new unpaired image-to-image translation model that enables fast and memory-efficient training.
 
