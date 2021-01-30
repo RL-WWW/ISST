@@ -1,20 +1,21 @@
 
-<img src='imgs/horse2zebra.gif' align="right" width=384>
+<!-- <img src='imgs/horse2zebra.gif' align="right" width=384> -->
 
 <br><br><br>
 
 # Image Segmentation Enhanced Style Transfer
 
-We have provided Pytorch Implementation for our course project **Image Segmentation Enhanced Style Transfer**. We have used Image Segmentation to help us improve the performance of conventional Style Transfer, especially for problem that the elements within the picture will interfere with each other.  
+We have provided the Pytorch Implementation for our course project **Image Segmentation Enhanced Style Transfer**. We have used Image Segmentation to help us improve the performance of conventional Style Transfer, especially for problem that the elements within the picture will interfere with each other.  
+
+The Implementation is based on [CycleGAN Pytorch](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). We have added the part in [Image Segmentation](https://github.com/RL-WWW/ISST/tree/main/experiments/segmentation) and several new files under the root repository, which is the key element to our image segmentation enhancing.
 
 ## Experimental Results
-![image]("https://github.com/RL-WWW/ISST/tree/main/pictures/dog3.jpeg")
-
+<img src='pictures/summary.png' align="right">
 
 <!-- <img src="https://github.com/RL-WWW/ISST/tree/main/pictures/dog3.jpeg" width="800"/> -->
 
 
-
+<!-- 
 **New**:  Please check out [contrastive-unpaired-translation](https://github.com/taesungp/contrastive-unpaired-translation) (CUT), our new unpaired image-to-image translation model that enables fast and memory-efficient training.
 
 We provide PyTorch implementations for both unpaired and paired image-to-image translation.
@@ -64,49 +65,14 @@ TensorFlow Core pix2pix Tutorial: [Google Colab](https://colab.research.google.c
 
 PyTorch Colab notebook: [CycleGAN](https://colab.research.google.com/github/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/CycleGAN.ipynb) and [pix2pix](https://colab.research.google.com/github/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/pix2pix.ipynb)
 
-ZeroCostDL4Mic Colab notebook: [CycleGAN](https://colab.research.google.com/github/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks_Beta/CycleGAN_ZeroCostDL4Mic.ipynb) and [pix2pix](https://colab.research.google.com/github/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks_Beta/pix2pix_ZeroCostDL4Mic.ipynb)
-
-## Other implementations
-### CycleGAN
-<p><a href="https://github.com/leehomyc/cyclegan-1"> [Tensorflow]</a> (by Harry Yang),
-<a href="https://github.com/architrathore/CycleGAN/">[Tensorflow]</a> (by Archit Rathore),
-<a href="https://github.com/vanhuyz/CycleGAN-TensorFlow">[Tensorflow]</a> (by Van Huy),
-<a href="https://github.com/XHUJOY/CycleGAN-tensorflow">[Tensorflow]</a> (by Xiaowei Hu),
-<a href="https://github.com/LynnHo/CycleGAN-Tensorflow-Simple"> [Tensorflow-simple]</a> (by Zhenliang He),
-<a href="https://github.com/luoxier/CycleGAN_Tensorlayer"> [TensorLayer1.0]</a> (by luoxier),
-<a href="https://github.com/tensorlayer/cyclegan"> [TensorLayer2.0]</a> (by zsdonghao),
-<a href="https://github.com/Aixile/chainer-cyclegan">[Chainer]</a> (by Yanghua Jin),
-<a href="https://github.com/yunjey/mnist-svhn-transfer">[Minimal PyTorch]</a> (by yunjey),
-<a href="https://github.com/Ldpe2G/DeepLearningForFun/tree/master/Mxnet-Scala/CycleGAN">[Mxnet]</a> (by Ldpe2G),
-<a href="https://github.com/tjwei/GANotebooks">[lasagne/Keras]</a> (by tjwei),
-<a href="https://github.com/simontomaskarlsson/CycleGAN-Keras">[Keras]</a> (by Simon Karlsson),
-<a href="https://github.com/Ldpe2G/DeepLearningForFun/tree/master/Oneflow-Python/CycleGAN">[OneFlow]</a> (by Ldpe2G)
-</p>
-</ul>
-
-### pix2pix
-<p><a href="https://github.com/affinelayer/pix2pix-tensorflow"> [Tensorflow]</a> (by Christopher Hesse),
-<a href="https://github.com/Eyyub/tensorflow-pix2pix">[Tensorflow]</a> (by Eyyüb Sariu),
-<a href="https://github.com/datitran/face2face-demo"> [Tensorflow (face2face)]</a> (by Dat Tran),
-<a href="https://github.com/awjuliani/Pix2Pix-Film"> [Tensorflow (film)]</a> (by Arthur Juliani),
-<a href="https://github.com/kaonashi-tyc/zi2zi">[Tensorflow (zi2zi)]</a> (by Yuchen Tian),
-<a href="https://github.com/pfnet-research/chainer-pix2pix">[Chainer]</a> (by mattya),
-<a href="https://github.com/tjwei/GANotebooks">[tf/torch/keras/lasagne]</a> (by tjwei),
-<a href="https://github.com/taey16/pix2pixBEGAN.pytorch">[Pytorch]</a> (by taey16)
-</p>
-</ul>
-
-## Prerequisites
-- Linux or macOS
-- Python 3
-- CPU or NVIDIA GPU + CUDA CuDNN
+ZeroCostDL4Mic Colab notebook: [CycleGAN](https://colab.research.google.com/github/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks_Beta/CycleGAN_ZeroCostDL4Mic.ipynb) and [pix2pix](https://colab.research.google.com/github/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks_Beta/pix2pix_ZeroCostDL4Mic.ipynb) -->
 
 ## Getting Started
 ### Installation
 
 - Clone this repo:
 ```bash
-git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+git clone git@github.com:RL-WWW/ISST.git
 cd pytorch-CycleGAN-and-pix2pix
 ```
 
