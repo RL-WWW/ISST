@@ -14,7 +14,7 @@ The poster of our project is in [ISST](https://github.com/RL-WWW/ISST/tree/main/
 &nbsp;
 ## Getting Started
 The process of our proposed ISST contains two essential parts:  
-(1) Image Segmentation. We directly used the pretrained model from [FastFCN](https://github.com/wuhuikai/FastFCN) You can download the models from [checkpoint](https://rec.ustc.edu.cn/share/7018a790-4108-11eb-88ad-2bd0a4833268) and then put them into the folder `checkpoint`.
+(1) Image Segmentation. We directly used the pretrained model from [FastFCN](https://github.com/wuhuikai/FastFCN) You can download the models from [checkpoint](https://rec.ustc.edu.cn/share/7018a790-4108-11eb-88ad-2bd0a4833268) and then put them into the folder `checkpoint`.  
 (2) Style Transfer for each segmentation. For simplicity, we used the pretrained model `horse2zebra_pretrained` and `winter2summer_yosemite_pretrained` from [CycleGAN Pytorch](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). These models should also be put in the folder `checkpoint`. You can download the checkpoint using the following command(from CycleGAN).
 ```bash
 bash ./scripts/download_cyclegan_model.sh horse2zebra
