@@ -42,4 +42,4 @@ Besides, you can also use L0-smooth (from the paper: Image Smoothing via $L_0$ G
 ```python
 python ISST.py --image $path_to_image --target_path $path_to_results --with_L0
 ```
-The L0-smooth code is from: http://
+As we can see in the results, our proposed methods have significantly improve the performance of CycleGAN, especially in the elements apart from the main animal.
