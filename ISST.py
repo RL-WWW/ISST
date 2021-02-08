@@ -24,6 +24,7 @@ def parse_args():
     parser.add_argument("--temp_folder", default=None, help='Where to put the middle images')
     parser.add_argument("--target_path", default="C:\\Users\\ls\\Desktop\\animal_pics\\dog_results", help='Where to put the final result')
     # parser.add_argument("--target_path", default=None, help='Where to put the final result')
+    parser.add_argument("--with_L0", default=False, action='store_true',help='whether to use L0-smooth before segmentation')
     return parser.parse_args()
 
 def config_models(model_names, folder):
@@ -100,7 +101,7 @@ def ISST(input_path, folder, folder2, target_path, models):
     original_im = Image.open(input_path)
     original_img = totensor(original_im)
 
-    matrix, image_classes = semseg(input_path, os.path.join(folder2, "mask.png"), with_L0=False)
+    matrix, image_classes = semseg(input_path, os.path.join(folder2, "mask.png"), with_L0=args.with_L0)
     matrix = torch.tensor(matrix[0])
     unique_pixel = torch.unique(matrix).sort()[0].data.numpy()
     # matrix and classes of the processed images
@@ -190,8 +191,7 @@ def ISST(input_path, folder, folder2, target_path, models):
             else:
                 toimage(fake).save(os.path.join(folder2, 'animal.png'))
 
-    # new_image[torch.where(real_img == pixel)] = fake[torch.where(real_img == pixel)]
-    # print(torch.where(real_img == pixel))
+
     for i, new_image in enumerate(new_images):
         result = toimage(new_image)
         result.save(target_path+f'{i}.png')
