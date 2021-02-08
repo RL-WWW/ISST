@@ -118,15 +118,12 @@ def semseg(input_path, output_path=None, with_L0=False):
     mask_matrix = predict.copy()
 
     if output_path is not None:
-        # exp = [0,1]
-        # for i, pixel in enumerate(np.unique(mask_matrix)):
-        #     mask_matrix[np.where(mask_matrix == pixel)] = exp[i]
         mask_matrix[np.where(mask_matrix != 29)] = 1
         mask_matrix[np.where(mask_matrix == 29)] = 0
         mask = utils.get_mask_pallete(mask_matrix, args.dataset)
         mask.save(output_path)
 
-    if main_pixels < background_pixels:
+    if main_idx < 29:
         return predict, (main_animal, "background")
     else:
         return predict, ("background", main_animal)
