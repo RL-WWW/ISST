@@ -4,6 +4,8 @@ We have provided the Pytorch Implementation for our course project **Image Segme
 
 The Implementation is based on [CycleGAN Pytorch](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). We have added the part in [Image Segmentation](https://github.com/RL-WWW/ISST/tree/main/segmentation) and several new files under the root repository, which is the key element to our image segmentation enhancing.
 
+The poster of our project is in [ISST](https://github.com/RL-WWW/ISST/tree/main/ISST.pdf).
+
 ## Experimental Results
 <img src='pictures/summary.png' align="right">
 
